@@ -12,6 +12,8 @@ out vec4 vColor;
 
 void main() {
     // TODO: set color as the dot product between a light direction, and the vertex normal
+    vColor = uColor;
     // TODO: transform position
+    gl_Position = uProjection * uView * uModel * vec4(position, 1);
 }
 `;
