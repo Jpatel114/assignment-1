@@ -6,7 +6,7 @@
 <link rel="shortcut icon" href="#">
 <style>
     body { 
-        background-color: rgb(150, 150, 150);
+        background-color: rgb(194, 145, 145);
         font-family: Arial, Helvetica, sans-serif;
     }
     #config {
@@ -39,19 +39,27 @@
         <table>
             <tr>
                 <td>Rotate</td>
-                <td><!--TODO: rotate slider--></td>
+                <td><input id="rotate" type="range" min="0" max="360" value="360" oninput="window.updateRotate()"></td>
             </tr>
             <tr>
                 <td>Zoom</td>
-                <td><!--TODO: zoom slider--></td>
+                <td><input id="zoom" type="range" min="1" max="100" value="1" oninput="window.updateZoom()"></td>
             </tr>
             <tr>
                 <td>Projection</td>
-                <td><!--TODO: dropdown menu element--></td>
+                <td>
+                    <select id="projection" onchange = "window.updateProjection()">
+                        <option value="">--Please choose an option--</option>
+                        <option value="perspective" >perspective</option>
+                        <option value="orthographic">orthographic</option>
+                    </select></td>
             </tr>
             <tr>
                 <td>Layers</td>
-                <td><!--TODO: input element--></td>
+                <td>
+                    <label for="file">Upload JSON</label>
+                    <input type="file" value="Upload File" id="file" name="file" accept="application/JSON" onchange='window.handleFile(this)'><br>
+                </td>
             </tr>
         </table>
     </div>

@@ -25,19 +25,10 @@ function createProgram(gl, vertexShader, fragmentShader) {
     return program;
 }
 
-function isAbv(value) {
-    return value && value.buffer instanceof ArrayBuffer && value.byteLength !== undefined;
-}
-
 function createBuffer(gl, type, data) {
 
     if(data.length == 0)
         return null;
-
-    if(!isAbv(data)) {
-        console.warn('Data is not an instance of ArrayBuffer');
-        return null;
-    }
 
     var buffer = gl.createBuffer();
     gl.bindBuffer(type, buffer);
